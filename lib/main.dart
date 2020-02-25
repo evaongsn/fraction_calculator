@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Material App',
       home: Scaffold(
-         backgroundColor: Colors.blue[50],
+        backgroundColor: Colors.blue[50],
         resizeToAvoidBottomPadding: false,
         appBar: AppBar(
           backgroundColor: Colors.blueGrey[400],
@@ -48,7 +48,8 @@ class _MyAppState extends State<MyApp> {
                       ),
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blueGrey[400])),
+                            borderSide:
+                                BorderSide(color: Colors.blueGrey[400])),
                       ),
                       keyboardType: TextInputType.numberWithOptions(),
                       controller: _number1,
@@ -73,7 +74,8 @@ class _MyAppState extends State<MyApp> {
                       ),
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blueGrey[400])),
+                            borderSide:
+                                BorderSide(color: Colors.blueGrey[400])),
                       ),
                       keyboardType: TextInputType.numberWithOptions(),
                       controller: _number2,
@@ -85,9 +87,8 @@ class _MyAppState extends State<MyApp> {
               Container(
                 child: DropdownButton<String>(
                     value: dropdownMath,
-                    style: TextStyle (fontSize: 30, color: Colors.black),
+                    style: TextStyle(fontSize: 30, color: Colors.black),
                     iconSize: 30,
-                  
                     onChanged: (String newValue) {
                       setState(() {
                         dropdownMath = newValue;
@@ -98,7 +99,6 @@ class _MyAppState extends State<MyApp> {
                       return DropdownMenuItem<String>(
                           value: value, child: Text(value));
                     }).toList()),
-                    
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -114,7 +114,8 @@ class _MyAppState extends State<MyApp> {
                       ),
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blueGrey[400])),
+                            borderSide:
+                                BorderSide(color: Colors.blueGrey[400])),
                       ),
                       keyboardType: TextInputType.numberWithOptions(),
                       controller: _number3,
@@ -139,7 +140,8 @@ class _MyAppState extends State<MyApp> {
                       ),
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blueGrey[400])),
+                            borderSide:
+                                BorderSide(color: Colors.blueGrey[400])),
                       ),
                       keyboardType: TextInputType.numberWithOptions(),
                       controller: _number4,
@@ -148,13 +150,35 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.all(5),
-                child: RaisedButton(
-                  color: Colors.blueGrey[600],
-                  child: Text("Calculate", style: TextStyle(fontSize: 20, color: Colors.white ),),
-                  onPressed: _onPress,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(5),
+                    child: MaterialButton(
+                      color: Colors.blueGrey[600],
+                      child: Text(
+                        "Calculate",
+                        style: TextStyle(fontSize: 20, color: Colors.white),
+                      ),
+                      onPressed: _onPress,
+                    ),
+                  ),
+                  SizedBox(width: 10,),
+                  Padding(
+                    padding: EdgeInsets.all(4),
+                    child: FlatButton(
+                      color: Colors.grey[600],
+                      child: Text('Clear'),
+                      onPressed: () {
+                        _number1.clear();
+                        _number2.clear();
+                        _number3.clear();
+                        _number4.clear();
+                      },
+                    ),
+                  ),
+                ],
               ),
               Text(
                 'Result: $resultformat',
